@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 init() {
-    readonly IMAGE="${image:-haoliang/qutebrowser}"
+    readonly IMAGE="${image:-sangwo/misc:qutebrowser}"
     readonly ROOT=$(dirname $(realpath $0))
     readonly CONTAINER="${container:-qutebrowser}"
     readonly MEMORY_LIMIT=${memory:-$(available_memory 0.5)}

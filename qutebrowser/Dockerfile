@@ -1,10 +1,9 @@
-FROM haoliang/archlinux:latest
+FROM archlinux/base:latest
 
-USER root
+COPY ./config/mirrorlist /etc/pacman.d/mirrorlist
 
 RUN pacman -Syy && pacman -S --noconfirm qutebrowser
 
-# todo more font
 RUN pacman -Syy && pacman -S --noconfirm ttf-bitstream-vera \
     adobe-source-code-pro-fonts \
     adobe-source-han-sans-otc-fonts \
@@ -12,5 +11,8 @@ RUN pacman -Syy && pacman -S --noconfirm ttf-bitstream-vera \
 
 COPY ./docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
-USER 1000
+ENV MY_USERNAME=haoliang
+RUN useradd -m -u 1000 -g users $MY_USERNAME
+
+USER $MY_USERNAME
 ENTRYPOINT ["docker-entrypoint.sh"]
