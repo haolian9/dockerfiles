@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 readonly MY_DIR=$(realpath $(dirname $0))
-readonly IMAGE_NAME="ssserver"
+readonly IMAGE_NAME="sangwo/misc:shadowsocks"
 readonly CONTAINER_NAME="ssserver"
 
 # change it as your desire
@@ -15,8 +15,8 @@ logger() {
 
 cd $MY_DIR || exit 1
 
-if [ $(docker images -q "$IMAGE_NAME:latest" | wc -l) -eq 0 ]; then
-    logger "not found $IMAGE_NAME:latest, trying to build..."
+if [ $(docker images -q "$IMAGE_NAME" | wc -l) -eq 0 ]; then
+    logger "not found $IMAGE_NAME, trying to build..."
     docker build -t $IMAGE_NAME . || {
         logger "### build ssserver image failed"
         exit 1

@@ -1,5 +1,5 @@
 
-image ?= haoliang/mplayer
+image ?= sangwo/misc:mplayer
 
 build:
 	@ docker build -t ${image} .

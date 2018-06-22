@@ -2,7 +2,7 @@
 
 source $(dirname $(realpath $0))/escape.sh
 
-readonly IMAGE=${image:-haoliang/mplayer}
+readonly IMAGE=${image:-sangwo/misc:mplayer}
 
 main() {
 
