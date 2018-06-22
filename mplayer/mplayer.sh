@@ -67,6 +67,9 @@ main() {
 
     )
 
+    xhost +
+    trap "xhost -" EXIT
+
     eval docker run --rm "${run[@]}"
 }
 
