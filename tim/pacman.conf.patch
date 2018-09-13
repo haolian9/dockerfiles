@@ -1,0 +1,6 @@
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+
+[archlinuxcn]
+SigLevel = Never
+Server = http://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
